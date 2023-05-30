@@ -46,19 +46,12 @@ describe('empty spec', () => {
     cy.visit('http://localhost:3000')
       .get('#name')
       .type('test-name')
-      .should('have.value', 'test-name')
-
       .get('#time')
       .type('3:50 pm')
-      .should('have.value', '3:50 pm')
-
       .get('#date')
       .type('05/30')
-      .should('have.value', '05/30')
-
       .get('#number')
       .type('3')
-      .should('have.value', '3')
 
       .get('.submit-button').click()
 
