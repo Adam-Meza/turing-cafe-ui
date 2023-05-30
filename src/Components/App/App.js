@@ -23,7 +23,9 @@ const App = () => {
   }
 
   const handleSubmit = (newRes) => {
-    setReservations([...reservations, newRes])
+    if (newRes) {
+      setReservations([...reservations, newRes])
+    }
   }
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const App = () => {
 
     return (
       <div className="App">
-        <h1 className='app-title'>  -- Turing Cafe Reservations  --  </h1>
+        <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
           <Form handleSubmit={ handleSubmit }/>
         </div>
