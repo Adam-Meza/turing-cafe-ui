@@ -7,28 +7,6 @@ export function Form (props) {
         [time, setTime] = useState(''),
         [number, setNumber] = useState(0);
 
-  // const handleSubmit = async () => {
-  //   const newRes = {
-  //     id: id,
-  //     date: date,
-  //     name: name,
-  //     time: time,
-  //     number: parseFloat(number)
-  //   }
-
-  //   try {
-  //     const postResponse = await fetch('http://localhost:3001/api/v1/reservations',
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         'Content-Type': 'application/json'},
-  //       body: JSON.stringify(newRes)
-  //     })
-  //   } catch {
-
-  //   }
-  // }
-
   const checkData = () => {
     const dateRegEx = /^(0?[1-9]|1[0-2])\/(0?[1-9]|1\d|2\d|3[01])$/
     const timeRegEx = /^(0?[1-9]|1[0-2]):([0-5][0-9]) [ap]m$/
@@ -58,7 +36,7 @@ export function Form (props) {
 
   return (
     <section className='form'>
-      { error && <h3>{error}</h3>}
+      { error && <h4>{error}</h4>}
       <input id="name" name="name" placeholder="name" className="form-input" onChange={(event) => setName(event.target.value)}/>
       <input id="date" name="date" placeholder="date" className="form-input" onChange={(event) => setDate(event.target.value)}/>
       <input id="number" name="number" placeholder="number" className="form-input" onChange={(event) => setNumber(event.target.value)}/>

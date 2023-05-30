@@ -66,4 +66,14 @@ describe('empty spec', () => {
       .should('have.length', 10)
 
   })
+
+  it('should display an error if inputs are incorret', ()=> {
+    cy.visit('http://localhost:3000')
+      .get('#time')
+      .type('THIS IS NOT A VALID TIME')
+    
+      .get('.submit-button').click()
+    
+      cy.get('h4').should('have.text', 'check your inputs!')
+  })
 })
