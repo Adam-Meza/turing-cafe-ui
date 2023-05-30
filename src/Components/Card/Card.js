@@ -7,9 +7,9 @@ export const Card = ({key, name, date, time, number}) => {
     <div className ="card" key = { key } id = { key }>
       <ul>
         <h2>{name}</h2>
-        <span>{date}</span>
-        <span>{time}</span>
-        <span>{number}</span>
+        <h3>{date}</h3>
+        <h3>{time}</h3>
+        <h3>{number}</h3>
       </ul>
     </div>
   )

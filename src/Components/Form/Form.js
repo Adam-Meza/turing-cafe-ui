@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
 export function Form (props) {
-  const [error, setError] = useState('')
-  const [date, setDate] = useState('')
-  const [name, setName] = useState('')
-  const [time, setTime] = useState('')
-  const [number, setNumber] = useState(0)
-  const [id, setId] = useState(Date.now())
+  const [error, setError] = useState(''),
+        [date, setDate] = useState(''),
+        [name, setName] = useState(''),
+        [time, setTime] = useState(''),
+        [number, setNumber] = useState(0);
 
   // const handleSubmit = async () => {
   //   const newRes = {
@@ -31,7 +30,7 @@ export function Form (props) {
   // }
 
   const checkData = () => {
-    const dateRegEx = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/\d{4}$/
+    const dateRegEx = /^(0?[1-9]|1[0-2])\/(0?[1-9]|1\d|2\d|3[01])$/
     const timeRegEx = /^(0?[1-9]|1[0-2]):([0-5][0-9]) [ap]m$/
     const numberRegEx = /^(0?\d|4[0-9]|50)$/
 
@@ -46,7 +45,7 @@ export function Form (props) {
   let makeResObject = () => {
     if (checkData()) {
       return {
-        id: id,
+        id: Date.now(),
         date: date,
         name: name,
         time: time,
@@ -64,7 +63,7 @@ export function Form (props) {
       <input id="date" name="date" placeholder="date" className="form-input" onChange={(event) => setDate(event.target.value)}/>
       <input id="number" name="number" placeholder="number" className="form-input" onChange={(event) => setNumber(event.target.value)}/>
       <input id="time" name="time" placeholder="time" className="form-input" onChange={(event) => setTime(event.target.value)}/>   
-      <button onClick={ () => props.handleSubmit(makeResObject())}>Make Reservation</button> 
+      <button className="submit-button"onClick={ () => props.handleSubmit(makeResObject())}>Make Reservation</button> 
     </section>
   )
 }

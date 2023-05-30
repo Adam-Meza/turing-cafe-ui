@@ -16,9 +16,9 @@ export const Main = ({ data }) => {
 
 
   return ( 
-  <>
+  <main>
     { reservations }
-  </>
+  </main>
   
   )
 }
