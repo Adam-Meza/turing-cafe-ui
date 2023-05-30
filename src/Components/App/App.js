@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Main } from '../Main/Main';
+import { Form } from '../Form/Form';
 
 const App = () => {
 
@@ -21,6 +22,10 @@ const App = () => {
     }
   }
 
+  const handleSubmit = (newRes) => {
+    setReservations([...reservations, newRes])
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -29,7 +34,7 @@ const App = () => {
       <div className="App">
         <h1 className='app-title'>  -- Turing Cafe Reservations  --  </h1>
         <div className='resy-form'>
-
+          <Form handleSubmit={ handleSubmit }/>
         </div>
         <div className='resy-container'>
           { reservations && <Main data = { reservations} />}
